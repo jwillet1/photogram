@@ -1,0 +1,11 @@
+%li.notifications
+  - if notification.read == false
+    - if notification.notice_type == 'comment'
+      = link_to "#{notification.notified_by.user_name} #{notification.notice_type}ed on your post #{time_ago_in_words(notification.created_at)} ago", link_through_path(notification)
+    - else
+      = link_to "#{notification.notified_by.user_name} #{notification.notice_type}d your post #{time_ago_in_words(notification.created_at)} ago", link_through_path(notification)
+  - else
+    - if notification.notice_type == 'comment'
+      = link_to "#{notification.notified_by.user_name} #{notification.notice_type}ed on your post #{time_ago_in_words(notification.created_at)} ago", link_through_path(notification)
+    - else
+      = link_to "#{notification.notified_by.user_name} #{notification.notice_type}d your post #{time_ago_in_words(notification.created_at)} ago", link_through_path(notification)
